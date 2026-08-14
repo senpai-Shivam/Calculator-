@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Modern Prank Calculator</title>
+    <!-- Tailwind CSS -->
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-200 relative">
+
+    <!-- Calculator Container -->
+    <div class="calculator-body w-full max-w-[340px] sm:max-w-[380px] rounded-3xl p-5 mx-4 flex flex-col gap-5 z-10">
+        
+        <!-- Calculator Screen -->
+        <div class="screen-container rounded-2xl p-5 flex flex-col items-end justify-end h-32 w-full text-right">
+            <div id="history" class="history-text text-slate-500 text-sm h-6 w-full overflow-x-auto whitespace-nowrap tracking-wider font-light mb-1">
+                <!-- Previous calculation history appears here -->
+            </div>
+            <div id="display" class="text-4xl sm:text-5xl font-semibold tracking-tight w-full overflow-hidden text-ellipsis whitespace-nowrap text-slate-100 transition-all duration-100">
+                0
+            </div>
+        </div>
+
+        <!-- Buttons Grid -->
+        <div class="grid grid-cols-4 gap-3 sm:gap-4">
+            <button class="calc-btn col-span-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-2xl h-14 sm:h-16 text-xl font-medium shadow-md" onclick="handleAction('clear')">AC</button>
+            <button class="calc-btn bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-2xl h-14 sm:h-16 text-xl font-medium shadow-md" onclick="handleAction('delete')">⌫</button>
+            <button class="calc-btn bg-amber-500 hover:bg-amber-400 text-white rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-md shadow-amber-500/20" onclick="handleOperator('/')">÷</button>
+            
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('7')">7</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('8')">8</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('9')">9</button>
+            <button class="calc-btn bg-amber-500 hover:bg-amber-400 text-white rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-md shadow-amber-500/20" onclick="handleOperator('*')">×</button>
+
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('4')">4</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('5')">5</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('6')">6</button>
+            <button class="calc-btn bg-amber-500 hover:bg-amber-400 text-white rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-md shadow-amber-500/20" onclick="handleOperator('-')">−</button>
+
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('1')">1</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('2')">2</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('3')">3</button>
+            <button class="calc-btn bg-amber-500 hover:bg-amber-400 text-white rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-md shadow-amber-500/20" onclick="handleOperator('+')">+</button>
+
+            <button class="calc-btn col-span-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('0')">0</button>
+            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('.')">.</button>
+            <button class="calc-btn bg-emerald-500 hover:bg-emerald-400 text-white rounded-2xl h-14 sm:h-16 text-3xl font-medium shadow-md shadow-emerald-500/20" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <!-- Personal Watermark -->
+    <div class="watermark">
+        code by <span class="author">Shivam</span>
+    </div>
+
+    <!-- Link to your external JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
