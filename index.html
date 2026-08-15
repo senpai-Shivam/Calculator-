@@ -2,38 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Modern Prank Calculator</title>
-    <!-- Tailwind CSS -->
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <!-- Link to your external CSS file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-slate-200 relative">
+<body class="bg-gray-900 min-h-screen flex items-center justify-center p-4">
 
-    <!-- Calculator Container -->
-    <div class="calculator-body w-full max-w-[340px] sm:max-w-[380px] rounded-3xl p-5 mx-4 flex flex-col gap-5 z-10">
+    <div class="calculator-card bg-gray-800 p-6 rounded-3xl shadow-2xl border border-gray-700 w-full max-w-xs sm:max-w-sm">
         
-        <!-- Calculator Screen -->
-        <div class="screen-container rounded-2xl p-5 flex flex-col items-end justify-end h-32 w-full text-right">
-            <div id="history" class="history-text text-slate-500 text-sm h-6 w-full overflow-x-auto whitespace-nowrap tracking-wider font-light mb-1">
-                <!-- Previous calculation history appears here -->
-            </div>
-            <div id="display" class="text-4xl sm:text-5xl font-semibold tracking-tight w-full overflow-hidden text-ellipsis whitespace-nowrap text-slate-100 transition-all duration-100">
-                0
-            </div>
+        <div class="mb-5 bg-gray-950 p-4 rounded-2xl text-right overflow-hidden shadow-inner">
+            <div id="history" class="text-gray-400 text-sm h-5 tracking-wider truncate"></div>
+            <div id="display" class="text-white text-3xl sm:text-4xl font-semibold tracking-wide truncate">0</div>
         </div>
 
-        <!-- Buttons Grid -->
-        <div class="grid grid-cols-4 gap-3 sm:gap-4">
-            <button class="calc-btn col-span-2 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-2xl h-14 sm:h-16 text-xl font-medium shadow-md" onclick="handleAction('clear')">AC</button>
-            <button class="calc-btn bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-2xl h-14 sm:h-16 text-xl font-medium shadow-md" onclick="handleAction('delete')">⌫</button>
-            <button class="calc-btn bg-amber-500 hover:bg-amber-400 text-white rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-md shadow-amber-500/20" onclick="handleOperator('/')">÷</button>
-            
-            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('7')">7</button>
-            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('8')">8</button>
-            <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('9')">9</button>
-            <button class="calc-btn bg-amber-500 hover:bg-amber-400 text-white rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-md shadow-amber-500/20" onclick="handleOperator('*')">×</button>
+        <div class="grid grid-cols-4 gap-3">
+            <button onclick="clearDisplay()" class="btn btn-action">AC</button>
+            <button onclick="deleteLast()" class="btn btn-action">DEL</button>
+            <button onclick="appendOperator('%')" class="btn btn-action">%</button>
+            <button onclick="appendOperator('/')" class="btn btn-op">÷</button>
+
+            <button onclick="appendNumber('7')" class="btn btn-num">7</button>
+            <button onclick="appendNumber('8')" class="btn btn-num">8</button>
+            <button onclick="appendNumber('9')" class="btn btn-num">9</button>
+            <button onclick="appendOperator('*')" class="btn btn-op">×</button>
+
+            <button onclick="appendNumber('4')" class="btn btn-num">4</button>
+            <button onclick="appendNumber('5')" class="btn btn-num">5</button>
+            <button onclick="appendNumber('6')" class="btn btn-num">6</button>
+            <button onclick="appendOperator('-')" class="btn btn-op">-</button>
+
+            <button onclick="appendNumber('1')" class="btn btn-num">1</button>
+            <button onclick="appendNumber('2')" class="btn btn-num">2</button>
+            <button onclick="appendNumber('3')" class="btn btn-num">3</button>
+            <button onclick="appendOperator('+')" class="btn btn-op">+</button>
+
+            <button onclick="appendNumber('0')" class="btn btn-num col-span-2">0</button>
+            <button onclick="appendDecimal('.')" class="btn btn-num">.</button>
+            <button onclick="calculate()" class="btn btn-equal">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
             <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('4')">4</button>
             <button class="calc-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 rounded-2xl h-14 sm:h-16 text-2xl font-medium shadow-sm" onclick="handleNumber('5')">5</button>
